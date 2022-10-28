@@ -1,0 +1,14 @@
+<launch>
+  <node pkg="pimouse_slam" name="keyboard_cmd_vel" type="keyboard_cmd_vel.py" required="true" />
+  <node pkg="pimouse_slam" name="motors" type="motors.py" required="true" />
+  <node pkg="hls_lfcd_lds_driver" name="hlds_laser_publisher" type="hlds_laser_publisher" required="true" />
+</launch>
+
+
+
+
+
+
+
+
+
