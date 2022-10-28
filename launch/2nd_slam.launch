@@ -6,8 +6,6 @@
   <node pkg="pimouse_slam" name="mouse" type="mouse.py" required="true" />
   <node pkg="hls_lfcd_lds_driver" name="hlds_laser_publisher" type="hlds_laser_publisher" required="true" >
 	<param name="port" value="/dev/ttyUSB0"/>
-        <!-- param name="frame_id" value="base_link"/ -->
-	<param name="frame_id" type="string" value="laser"/>
+        <param name="frame_id" value="base_link"/>
   </node>
-  <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0.01 0 3.14 3.14 base_link laser 100" />
 </launch>

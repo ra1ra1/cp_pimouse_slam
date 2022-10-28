@@ -8,6 +8,7 @@
 #http://opensource.org/licenses/mit-license.php
 
 import rospy
+import numpy as np
 from geometry_msgs.msg import Twist
 from std_srvs.srv import Trigger, TriggerResponse
 
@@ -20,10 +21,10 @@ rospy.init_node('keyboard_cmd_vel')
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 while not rospy.is_shutdown():
     vel = Twist()
-    direction = raw_input('k: forward, j: backward, h: left, l: right, return: stop > ')
-    if 'k' in direction: vel.linear.x = 0.15
-    if 'j' in direction: vel.linear.x = -0.15
-    if 'h' in direction: vel.angular.z = 3.14/4
-    if 'l' in direction: vel.angular.z = -3.14/4
+    direction = raw_input('w: forward, s: backward, a: left, d: right, return: stop > ')
+    if 'w' in direction: vel.linear.x = 0.15
+    if 's' in direction: vel.linear.x = -0.15
+    if 'a' in direction: vel.angular.z = np.pi/4
+    if 'd' in direction: vel.angular.z = -np.pi/4
     print vel
     pub.publish(vel)
